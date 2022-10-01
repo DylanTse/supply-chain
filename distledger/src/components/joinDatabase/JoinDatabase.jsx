@@ -1,15 +1,18 @@
-import "./joinDatabase.css"
+import "./joinDatabase.scss"
 
 export default function JoinDatabase() {
     return (
         <div className="join">
-            <h1>Join Database</h1>
-            <p>
-            You will need to enter the unique ID that has been sent to you in order to be added to 
-            the database.
-            </p>
-            <textarea placeholder="Enter Database's Unique User ID"></textarea>
-            <button>Request Access</button>
+            <div className="left">
+                <h1>Join Database</h1>
+                <h4>
+                Join the database that the other party has set up here. Any changes to the database will notify
+                everyone with access to it. Enter a valid unique ID in order to be added to a database. 
+                </h4>
+                <textarea maxlength="100" cols="100" placeholder="Enter Database's Unique User ID"></textarea>
+                <br/>
+                <button>Request Access</button>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,19 @@
+.join {
+    background-color: rgb(73, 169, 186);
+    display: flex;
+    padding: 10px;
+
+    .left {
+        flex: 0.6;
+        
+        textarea {
+            resize: none;
+        }
+
+        h1 {
+            font-size: 5em;
+        }
+    
+    }
+
+}

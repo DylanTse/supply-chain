@@ -1,4 +1,4 @@
-import "./formDatabase.css"
+import "./formDatabase.scss"
 
 export default function FormDatabase() {
     return (
