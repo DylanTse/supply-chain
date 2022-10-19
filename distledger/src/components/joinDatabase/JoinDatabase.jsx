@@ -1,6 +1,7 @@
 import "./joinDatabase.scss"
 
 export default function JoinDatabase() {
+    
     return (
         <div className="join">
             <div className="left">
