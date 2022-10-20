@@ -1,5 +1,4 @@
 import "./formDatabase.scss"
-import {Routes, Route, useNavigate} from "react-router-dom"
 
 export default function FormDatabase() {
     
