@@ -1,6 +1,7 @@
 .join {
     background-color: rgb(73, 169, 186);
     display: flex;
+    align-items: left;
     padding: 10px;
 
     .left {
@@ -8,27 +9,39 @@
         
         textarea {
             resize: none;
+            margin: 20px;
+            padding: 5px;
+            font-size: 20px;
         }
 
         h1 {
             font-size: 5em;
+            margin-top: 50px;
+            margin-left: 20px;
         }
 
         button {
             background-color: rgb(79, 88, 88);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             font-size: 16px;
             transition-duration: 0.6s;
+            margin-left: 20px;
         }
         button:hover {
             background-color: rgb(143, 139, 139);
             color: rgb(0, 0, 0);
         }
-    
+
+        p {
+            padding: 20px;
+            font-size: 25px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
     }
 
 }
