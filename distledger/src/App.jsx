@@ -4,6 +4,7 @@ import "./app.scss"
 import JoinDatabase from './components/joinDatabase/JoinDatabase';
 import FormDatabase from './components/formDatabase/FormDatabase';
 import Header from './components/header/Header';
+import TransactionPage from './components/TransactionPage/TransactionPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header/>
         <JoinDatabase/>
         <FormDatabase/>
+        <TransactionPage/>
       </div>
     </div>
   );
