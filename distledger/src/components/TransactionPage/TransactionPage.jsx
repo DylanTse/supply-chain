@@ -16,7 +16,9 @@ function TransactionPage() {
                 </tr>
             </thead>
         </table>
+        <div class="vertical-line"></div>
     </div>
+  
   )
 }
 
