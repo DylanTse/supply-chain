@@ -1,6 +1,8 @@
 import "./formDatabase.scss"
 
 export default function FormDatabase() {
+    
+
     return (
         <div className="form">
             <h1>Create Database</h1>
@@ -9,6 +11,9 @@ export default function FormDatabase() {
             or shippers in order to provide them with access.
             </p>
             <button>Create Database</button>
+            <div>
+                <button>Sign up</button>
+            </div>          
         </div>
     )
 }

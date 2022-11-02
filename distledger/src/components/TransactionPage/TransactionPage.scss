@@ -1,0 +1,25 @@
+
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+}
+
+th {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    font-size: 20px;
+    padding: 1rem;
+
+}
+
+.vertical-line {
+    border-left: 1px solid black;
+    height: 500px;
+}
+
+
+
+
