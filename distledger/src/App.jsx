@@ -9,9 +9,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<JoinDatabase />} />
+        <Route path ='/' element={<Header />} />
+        <Route path='/Join' element={<JoinDatabase />} />
         <Route path='/Login' element={<FormDatabase />} />
-        {/* <Route path='/' element={<Home />} /> */}
       </Routes>
     </Router>
   );
