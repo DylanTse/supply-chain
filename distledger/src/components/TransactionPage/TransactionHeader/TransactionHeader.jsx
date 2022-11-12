@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./TransactionHeader.scss"
-import TransaxnLogo from "../TransactionHeader/TRANSAXNLogo.png"
-import ProfileIcon from "../TransactionHeader/ProfileIcon.png"
+import TransaxnLogo from "../TransactionHeader/Images/TRANSAXNLogo.png"
+import ProfileIcon from "../TransactionHeader/Images/ProfileIcon.png"
 
 export default class TransactionHeader extends Component {
   render() {
