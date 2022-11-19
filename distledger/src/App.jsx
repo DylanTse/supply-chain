@@ -5,7 +5,6 @@ import JoinDatabase from './components/joinDatabase/JoinDatabase';
 import FormDatabase from './components/formDatabase/FormDatabase';
 import Header from './components/header/Header';
 import TransactionPage from './components/TransactionPage/TransactionPage';
-import TransactionHeader from './components/TransactionPage/TransactionHeader/TransactionHeader';
 import DatePicker from './components/TransactionPage/TransactionTable/DatePicker'
 
 
@@ -17,7 +16,7 @@ function App() {
         <Route path='/Join' element={<JoinDatabase />} />
         <Route path='/Login' element={<FormDatabase />} />
         <Route path= '/TransactionPage' element={<TransactionPage/>} />
-        <Route path='/test' element = {<DatePicker />} />
+        <Route path='/calendar' element = {<DatePicker />} />
         {/* <Route path='/' element={<Home />} /> */}
       </Routes>
     </Router>

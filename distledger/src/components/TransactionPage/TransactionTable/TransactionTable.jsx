@@ -11,21 +11,27 @@ import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
-function createData(date, time, status, amount, id, receiver) {
-  return { date, time, status, amount, id, receiver };
+function createData(date, time, status, id, amount, receiver) {
+  return { date, time, status, id, amount, receiver };
 }
 
+function generateRandom() {
+  const min = 10000
+  const rand = min + Math.random() * (Math.random(1, 10))
+};
+
 const rows = [
-  createData("11/20/2022", "12:20 PM", "Delivered", "$550.87", "56AW9", "Costco"),
-  createData("10/10/2022", "11:00 PM", "Pending", "$459.60", "A9WR5", "HEB"),
-  createData("09/07/2022", "03:30 AM", "In-Warehouse", "$209.13", "90LAP", "Whole Foods"),
-  createData("06/15/2022", "07:20 AM", "Delivered", "$89.90", "CR538", "Pizza Press"),
-  createData("04/12/2022", "02:20 PM", "Delivered", "$1047.56", "KD980", "Zara"), 
+  createData("11/20/2022", "12:20 PM", "Delivered", "56AW9", "$550.87", "Costco"),
+  createData("10/10/2022", "11:00 PM", "Pending", "A9WR5", "$459.60", "HEB"),
+  createData("09/07/2022", "03:30 AM", "In-Warehouse", "90LAP", "$209.13", "Whole Foods"),
+  createData("06/15/2022", "07:20 AM", "Delivered", "CR538", "$89.90", "Pizza Press"),
+  createData("04/12/2022", "02:20 PM", "Delivered", "KD980", "$1047.56", "Zara"), 
 ];
 
 export default function TransactionTable() {
@@ -34,6 +40,13 @@ export default function TransactionTable() {
   const changeStatus = (event) => {
     setStatus(event.target.value)
   };
+
+  const[receiver, setReceiver] = React.useState('');
+
+  const changeReceiver = (event) => {
+    setReceiver(event.target.value)
+  };
+
 
   return (
     <TableContainer component={Paper}>
@@ -44,10 +57,12 @@ export default function TransactionTable() {
             <TableCell align="center">Date</TableCell>
             <TableCell align="center">Time</TableCell>
             <TableCell align="center">Status</TableCell>
-            <TableCell align="center">Amount</TableCell>
             <TableCell align="center">ID</TableCell>
+            <TableCell align="center">Amount</TableCell>
             <TableCell align="center">Receiver</TableCell>
           </TableRow>
+          </TableHead>
+
           {/* Second Row of Table = Implement Buttons to Enter Data */}
           <TableRow>
             <TableCell align="center">Date Button</TableCell>
@@ -55,8 +70,8 @@ export default function TransactionTable() {
             {/* Status of Delivery Dropdown */}
             <TableCell align="center">
             <Box sx={{ minWidth: 50 }}>
-              <FormControl fullWidth>
-                <InputLabel id="status-label">Enter Status</InputLabel>
+              <FormControl sx={{ m: 1, minWidth: 150 }} size="small" variant="standard">
+                <InputLabel id="status-label">Status</InputLabel>
               <Select label="Status" value={status} onChange={changeStatus}>
                 <MenuItem value={1}>Delivered</MenuItem>
                 <MenuItem value={2}>In-Transit</MenuItem>
@@ -66,8 +81,34 @@ export default function TransactionTable() {
             </Box>
             </TableCell>
             {/* Generated ID */}
+            <TableCell align="center">. . .</TableCell>
+            {/* Amount */}
+            <TableCell align="center">
+            <TextField 
+              sx={{
+                width: { sm: 20, md: 100 },
+              }}
+              id="standard" 
+              variant="outlined" 
+              size="small" 
+                />
+            {/* Receiver */}    
+            </TableCell>
+            <TableCell align="center">
+            <Box sx={{ minWidth: 50 }}>
+              <FormControl sx={{ m: 1, minWidth: 150 }} size="small" variant="standard">
+                <InputLabel id="receiver-label">Receiver</InputLabel>
+              <Select label="Status" value={receiver} onChange={changeReceiver}>
+                <MenuItem value={1}>Costco</MenuItem>
+                <MenuItem value={2}>Aritzia</MenuItem>
+                <MenuItem value={3}>Randalls</MenuItem>
+                <MenuItem value={4}>Add New Purchaser</MenuItem>
+              </Select>
+              </FormControl>
+            </Box>
+            </TableCell>
           </TableRow>
-        </TableHead>
+
         <TableBody>
           {rows.map((row) => (
             <TableRow
@@ -77,8 +118,8 @@ export default function TransactionTable() {
               <TableCell align="center">{row.date}</TableCell>
               <TableCell align="center">{row.time}</TableCell>
               <TableCell align="center">{row.status}</TableCell>
-              <TableCell align="center">{row.amount}</TableCell>
               <TableCell align="center">{row.id}</TableCell>
+              <TableCell align="center">{row.amount}</TableCell>
               <TableCell align="center">{row.receiver}</TableCell>
             </TableRow>
           ))}
