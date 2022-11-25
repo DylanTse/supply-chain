@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "devDependencies": {
     "sass": "^1.55.0"
   },
@@ -11,9 +10,5 @@
     "firebase": "^9.12.1",
     "react-bootstrap": "^2.5.0",
     "react-router-dom": "^6.4.2"
-=======
-  "dependencies": {
-    "react": "^18.2.0"
->>>>>>> 8bf36884391c777b6f80ca306672c55af8201916
   }
 }
