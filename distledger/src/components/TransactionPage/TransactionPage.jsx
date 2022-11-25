@@ -1,26 +1,12 @@
-import "./TransactionPage.scss"
 import React from 'react'
+import TransactionTable from './TransactionTable/TransactionTable'
+import TransactionHeader from './TransactionHeader/TransactionHeader'
 
-function TransactionPage() {
+export default function TransactionPage() {
   return (
-    <div className="table-container">
-        <table cellSpacing={0}>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>ID</th>
-                    <th>Amount</th>
-                    <th>Purchaser</th>
-                </tr>
-            </thead>
-        </table>
-        <div class="vertical-line"></div>
-    </div>
-  
+    <>
+    <TransactionHeader />
+    <TransactionTable />
+    </>
   )
 }
-
-export default TransactionPage
-
