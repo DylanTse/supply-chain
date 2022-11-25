@@ -1,0 +1,55 @@
+[
+    {
+        "date": "11/12/2022",
+        "time": "12:20 PM",
+        "status": "Received",
+        "id": "56A9N",
+        "amount": "$550.87",
+        "receiver": "Costco"
+    },
+
+    {
+        "date": "10/10/2022",
+        "time": "11:00 PM",
+        "status": "In-Transit",
+        "id": "A9WR5",
+        "amount": "$459.60",
+        "receiver": "HEB"
+    },
+
+    {
+        "date": "09/07/2022",
+        "time": "11:00 PM",
+        "status": "In-Warehouse",
+        "id": "90LAP",
+        "amount": "$209.13",
+        "receiver": "Whole Foods"
+    },
+
+    {
+        "date": "09/07/2022",
+        "time": "03:30 AM",
+        "status": "In-Warehouse",
+        "id": "90LAP",
+        "amount": "$209.13",
+        "receiver": "Whole Foods"
+    },
+
+    {
+        "date": "06/15/2022",
+        "time": "07:20 AM",
+        "status": "Delivered",
+        "id": "CR548",
+        "amount": "$89.90",
+        "receiver": "Pizza Press"
+    },
+
+    {
+        "date": "04/12/2022",
+        "time": "02:20 PM",
+        "status": "Delivered",
+        "id": "KD980",
+        "amount": "$1047.56",
+        "receiver": "Costco"
+    }
+]
