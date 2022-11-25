@@ -1,130 +1,164 @@
-import * as React from 'react';
+import React from 'react';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { TableHead, TableRow, TableCell, TableBody, TextField, InputLabel } from '@mui/material';
+import { Select, MenuItem, FormControl, Button, SearchBar, Stack } from '@mui/material';
+import data from './mock-data.json';
+import "./TransactionTable.scss";
 
 
-function createData(date, time, status, id, amount, receiver) {
-  return { date, time, status, id, amount, receiver };
-}
+export default function Tabletest() {
+    const[transaction, setTransaction] = useState(data);
+    const[addFormData, setaddFormData] = useState({
+        date: '',
+        time: '',
+        status: '',
+        id: '',
+        amount: '',
+        receiver: ''
 
-function generateRandom() {
-  const min = 10000
-  const rand = min + Math.random() * (Math.random(1, 10))
-};
+    })
 
-const rows = [
-  createData("11/20/2022", "12:20 PM", "Delivered", "56AW9", "$550.87", "Costco"),
-  createData("10/10/2022", "11:00 PM", "Pending", "A9WR5", "$459.60", "HEB"),
-  createData("09/07/2022", "03:30 AM", "In-Warehouse", "90LAP", "$209.13", "Whole Foods"),
-  createData("06/15/2022", "07:20 AM", "Delivered", "CR538", "$89.90", "Pizza Press"),
-  createData("04/12/2022", "02:20 PM", "Delivered", "KD980", "$1047.56", "Zara"), 
-];
+    const handleAddFormChange = (event) => {
+        event.preventDefault();
 
-export default function TransactionTable() {
-  const[status, setStatus] = React.useState('');
+        const fieldName = event.target.getAttribute('name');
+        const fieldValue = event.target.value;
 
-  const changeStatus = (event) => {
-    setStatus(event.target.value)
-  };
+        const newFormData = { ...addFormData};
+        newFormData[fieldName] = fieldValue;
 
-  const[receiver, setReceiver] = React.useState('');
+        setaddFormData(newFormData);
+    };
 
-  const changeReceiver = (event) => {
-    setReceiver(event.target.value)
-  };
+    const handleAddFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newTransaction = {
+            date: addFormData.date,
+            time: addFormData.time,
+            status: addFormData.status,
+            id: addFormData.id,
+            amount: addFormData.amount,
+            receiver: addFormData.receiver
+        };
+
+        const newTransactions = [...transaction, newTransaction];
+        setTransaction(newTransactions);
+        
+        {/* Makes the Form Inputs Empty after Each Submit ? Doesnt work for select dropdown */}
+        event.target.reset();
+    };
+
+    const handleStatusChange = (event) => {
+        event.preventDefault();
+        setaddFormData({...addFormData, status: event.target.value})
+    };
+
+    const handleReceiverChange = (event) => {
+        event.preventDefault();
+        setaddFormData({...addFormData, receiver: event.target.value})
+    };
 
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-         {/* First Row of Table = Column Names */}
-          <TableRow>
-            <TableCell align="center">Date</TableCell>
-            <TableCell align="center">Time</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">ID</TableCell>
-            <TableCell align="center">Amount</TableCell>
-            <TableCell align="center">Receiver</TableCell>
-          </TableRow>
-          </TableHead>
+    <div>
 
-          {/* Second Row of Table = Implement Buttons to Enter Data */}
-          <TableRow>
-            <TableCell align="center">Date Button</TableCell>
-            <TableCell align="center">Time Button</TableCell>
-            {/* Status of Delivery Dropdown */}
-            <TableCell align="center">
-            <Box sx={{ minWidth: 50 }}>
-              <FormControl sx={{ m: 1, minWidth: 150 }} size="small" variant="standard">
-                <InputLabel id="status-label">Status</InputLabel>
-              <Select label="Status" value={status} onChange={changeStatus}>
-                <MenuItem value={1}>Delivered</MenuItem>
-                <MenuItem value={2}>In-Transit</MenuItem>
-                <MenuItem value={3}>In-Warehouse</MenuItem>
-              </Select>
-              </FormControl>
-            </Box>
-            </TableCell>
-            {/* Generated ID */}
-            <TableCell align="center">. . .</TableCell>
-            {/* Amount */}
-            <TableCell align="center">
-            <TextField 
-              sx={{
-                width: { sm: 20, md: 100 },
-              }}
-              id="standard" 
-              variant="outlined" 
-              size="small" 
-                />
-            {/* Receiver */}    
-            </TableCell>
-            <TableCell align="center">
-            <Box sx={{ minWidth: 50 }}>
-              <FormControl sx={{ m: 1, minWidth: 150 }} size="small" variant="standard">
-                <InputLabel id="receiver-label">Receiver</InputLabel>
-              <Select label="Status" value={receiver} onChange={changeReceiver}>
-                <MenuItem value={1}>Costco</MenuItem>
-                <MenuItem value={2}>Aritzia</MenuItem>
-                <MenuItem value={3}>Randalls</MenuItem>
-                <MenuItem value={4}>Add New Purchaser</MenuItem>
-              </Select>
-              </FormControl>
-            </Box>
-            </TableCell>
-          </TableRow>
-
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.date}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    <form onSubmit={handleAddFormSubmit}>
+        <input
+        type="date"
+        onChange={handleAddFormChange}
+        name="date"
+        />
+        <input
+        type="time"
+        onChange={handleAddFormChange}
+        name="time"
+        />
+        <FormControl sx={{ minWidth: 150, ml: 12 }} size="small" variant="outlined">
+            <InputLabel>Status</InputLabel>
+            <Select
+            label="Status"
+            size="small"
+            required="required"
+            name="status"
+            onChange={handleStatusChange}
+            defaultValue=''
             >
-              <TableCell align="center">{row.date}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
-              <TableCell align="center">{row.status}</TableCell>
-              <TableCell align="center">{row.id}</TableCell>
-              <TableCell align="center">{row.amount}</TableCell>
-              <TableCell align="center">{row.receiver}</TableCell>
+            <MenuItem value={'Delivered'}>Delivered</MenuItem>
+            <MenuItem value={'In-Transit'}>In-Transit</MenuItem>
+            <MenuItem value={'In-Warehouse'}>In-Warehouse</MenuItem>
+            </Select>
+        </FormControl>
+        <TextField
+        sx={{
+          width: { sm: 20, md: 100 },
+          ml: 11
+        }}
+        variant="outlined"
+        size="small"
+        label="ID"
+        disabled='True'
+        name="id"
+        onChange={handleAddFormChange}
+        />
+        <TextField
+        sx={{
+            width: { sm: 20, md: 100 },
+            ml: 9
+          }}
+        variant="outlined"
+        size="small"
+        label="Amount"
+        required="required"
+        name="amount"
+        onChange={handleAddFormChange}
+        />
+        <FormControl sx={{ minWidth: 150, ml: 5 }} size="small" variant="outlined">
+            <InputLabel>Receiver</InputLabel>
+            <Select
+            label="Receiver"
+            size="small"
+            requred="required"
+            name="status"
+            onChange={handleReceiverChange}
+            defaultValue=''
+            >
+            <MenuItem value={'Costco'}>Costco</MenuItem>
+            <MenuItem value={'HEB'}>HEB</MenuItem>
+            <MenuItem value={'Zara'}>Zara</MenuItem>
+            <MenuItem value={'Add New Purchaser'}>Add New Purchaser</MenuItem>
+            </Select>
+        </FormControl>
+    <Button type="submit" variant="outlined" sx={{ml: 2}}>Enter</Button>
+    </form>
+
+    <Table>
+        <TableHead>
+            <TableRow>
+                <TableCell align="center">Date</TableCell>
+                <TableCell align="center">Time</TableCell>
+                <TableCell align="center">Status</TableCell>
+                <TableCell align="center">ID</TableCell>
+                <TableCell align="center">Amount</TableCell>
+                <TableCell align="left">Receiver</TableCell>
             </TableRow>
-          ))}
+        </TableHead>
+        <TableBody>
+            {transaction.map((information) => (
+                <TableRow>
+                    <TableCell align="center">{information.date}</TableCell>
+                    <TableCell align="center">{information.time}</TableCell>
+                    <TableCell align="center">{information.status}</TableCell>
+                    <TableCell align="center">{information.id}</TableCell>
+                    <TableCell align="center">{information.amount}</TableCell>
+                    <TableCell align="left">{information.receiver}</TableCell>
+                </TableRow>
+            ))}
         </TableBody>
-      </Table>
-    </TableContainer>
-  );
+    </Table>
+
+    </div>
+
+  )
 }
