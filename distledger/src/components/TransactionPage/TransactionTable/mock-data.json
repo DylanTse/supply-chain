@@ -5,7 +5,8 @@
         "status": "Received",
         "id": "56A9N",
         "amount": "$550.87",
-        "receiver": "Costco"
+        "receiver": "Costco",
+        "note": "Awaiting payment"
     },
 
     {
