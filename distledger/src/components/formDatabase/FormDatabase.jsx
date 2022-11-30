@@ -13,7 +13,7 @@ export default function FormDatabase() {
             <button>Create Database</button>
             <div>
                 <button>Sign up</button>
-            </div>          
+            </div>      
         </div>
     )
 }
