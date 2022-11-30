@@ -1,17 +1,16 @@
 [
     {
-        "date": "11/12/2022",
-        "time": "12:20 PM",
+        "date": "2022-11-12",
+        "time": "12:20",
         "status": "Received",
         "id": "56A9N",
         "amount": "$550.87",
-        "receiver": "Costco",
-        "note": "Awaiting payment"
+        "receiver": "Costco"
     },
 
     {
-        "date": "10/10/2022",
-        "time": "11:00 PM",
+        "date": "2022-10-10",
+        "time": "11:00",
         "status": "In-Transit",
         "id": "A9WR5",
         "amount": "$459.60",
@@ -19,8 +18,8 @@
     },
 
     {
-        "date": "09/07/2022",
-        "time": "11:00 PM",
+        "date": "2022-09-07",
+        "time": "03:24",
         "status": "In-Warehouse",
         "id": "90LAP",
         "amount": "$209.13",
@@ -28,8 +27,8 @@
     },
 
     {
-        "date": "09/07/2022",
-        "time": "03:30 AM",
+        "date": "2022-03-11",
+        "time": "09:24",
         "status": "In-Warehouse",
         "id": "90LAP",
         "amount": "$209.13",
@@ -37,8 +36,8 @@
     },
 
     {
-        "date": "06/15/2022",
-        "time": "07:20 AM",
+        "date": "2022-06-15",
+        "time": "07:20",
         "status": "Delivered",
         "id": "CR548",
         "amount": "$89.90",
@@ -46,8 +45,8 @@
     },
 
     {
-        "date": "04/12/2022",
-        "time": "02:20 PM",
+        "date": "2022-04-12",
+        "time": "02:20",
         "status": "Delivered",
         "id": "KD980",
         "amount": "$1047.56",

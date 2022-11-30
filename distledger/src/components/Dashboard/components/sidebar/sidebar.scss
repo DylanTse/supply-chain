@@ -80,7 +80,21 @@
             }
 
         }
-    }    
+    } 
+    
+    button {
+        background-color: white;
+        border: 0px;
+        font-size: 14.8px;
+        font-family: 'Nunito', sans-serif;
+
+
+        &:hover {
+            background-color: rgb(206, 233, 255);
+            cursor: pointer;
+        }
+
+    }
 }
 
     
