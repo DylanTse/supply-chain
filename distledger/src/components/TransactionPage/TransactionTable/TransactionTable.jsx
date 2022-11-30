@@ -16,7 +16,6 @@ export default function Tabletest() {
         id: 'XR57D',
         amount: '',
         receiver: '',
-        note: '',
 
     })
 
@@ -42,7 +41,6 @@ export default function Tabletest() {
             id: addFormData.id,
             amount: addFormData.amount,
             receiver: addFormData.receiver,
-            note: addFormData.note
         };
 
         const newTransactions = [...transaction, newTransaction];
@@ -134,16 +132,6 @@ export default function Tabletest() {
             <MenuItem value={'Add New Purchaser'}>Add New Purchaser</MenuItem>
             </Select>
         </FormControl>
-        <TextField
-        sx={{
-          width: { sm: 20, md: 100 },
-          ml: 11
-        }}
-        variant="outlined"
-        size="small"
-        name="note"
-        onChange={handleAddFormChange}
-        />
     <Button type="submit" variant="outlined" sx={{ml: 2}}>Enter</Button>
     </form>
     </div>
@@ -156,8 +144,7 @@ export default function Tabletest() {
                 <TableCell align="center">Status</TableCell>
                 <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Amount</TableCell>
-                <TableCell align="center">Receiver</TableCell>
-                <TableCell align="left">Notes</TableCell>
+                <TableCell align="left">Receiver</TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -168,8 +155,7 @@ export default function Tabletest() {
                     <TableCell align="center">{information.status}</TableCell>
                     <TableCell align="center">{information.id}</TableCell>
                     <TableCell align="center">{information.amount}</TableCell>
-                    <TableCell align="center">{information.receiver}</TableCell>
-                    <TableCell align="left">{information.note}</TableCell>
+                    <TableCell align="left">{information.receiver}</TableCell>
                 </TableRow>
             ))}
         </TableBody>

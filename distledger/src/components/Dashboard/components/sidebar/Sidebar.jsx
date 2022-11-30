@@ -1,6 +1,8 @@
 import React from 'react'
 import './sidebar.scss'
 import TransaxnLogo from '../../Icons/TransaxnLogo.png'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Link } from "react-router-dom"
 
 const Sidebar = () => {
   return (
@@ -17,7 +19,9 @@ const Sidebar = () => {
                 </li>
                 <p className="title">PAGES</p>
                 <li>
-                    <span>Transaction History</span>
+                    <Link to='/TransactionPage'>
+                    <span><button>Transaction History</button></span>
+                    </Link>
                 </li>
                 <li>
                     <span>Business Analytics</span>
