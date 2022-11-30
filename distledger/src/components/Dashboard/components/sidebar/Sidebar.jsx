@@ -37,7 +37,9 @@ const Sidebar = () => {
                     <span>Profile</span>
                 </li>
                 <li>
-                    <span>Log Out</span>
+                    <Link to='/'>
+                    <span><button>Log Out</button></span>
+                    </Link>
                 </li>
             </ul>
         </div>

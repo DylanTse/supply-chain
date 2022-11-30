@@ -77,7 +77,7 @@ export default function Tabletest() {
         name="time"
         required="required"
         />
-        <FormControl sx={{ minWidth: 150, ml: 12 }} size="small" variant="outlined">
+        <FormControl sx={{ minWidth: 150, ml: 10 }} size="small" variant="outlined">
             <InputLabel>Status</InputLabel>
             <Select
             label="Status"
@@ -107,7 +107,7 @@ export default function Tabletest() {
         <TextField
         sx={{
             width: { sm: 20, md: 100 },
-            ml: 9
+            ml: 12
           }}
         variant="outlined"
         size="small"
