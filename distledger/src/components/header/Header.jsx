@@ -13,13 +13,16 @@ export default function Header() {
             <header className="viewport-header">
                 <div className="container">
                     <h1>Transaxn</h1>
-                    <h3> » designed by the 2022 Convergent E-Comm Supply Chain BT</h3>
-                    <h3> » redefining how small businesses track transactions between suppliers and shippers</h3>
                     <div className="SignUp">
-                        <Link to='/TransactionPage'>
+                        <Link to='/Dashboard'>
                         <button>Log In</button>
                         </Link>
+
+                        <Link to='/Dashboard'>
+                        <button>Sign Up</button>
+                        </Link>
                     </div>
+                    
                 </div>
             </header>
         </div>
