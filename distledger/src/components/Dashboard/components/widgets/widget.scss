@@ -31,6 +31,7 @@
             font-size: 12px;
             border-bottom: 1px solid gray;
             width: max-content;
+            cursor: pointer;
         }
 
         .percentage {
@@ -45,6 +46,10 @@
             &.negative {
                 color: red;
             }
+        
+        .img {
+            display: flex;
+        }
         }
     }
 

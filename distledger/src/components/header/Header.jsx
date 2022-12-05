@@ -15,11 +15,11 @@ export default function Header() {
                     <h1>Transaxn</h1>
                     <div className="SignUp">
                         <Link to='/Dashboard'>
-                        <button>Log In</button>
+                        <button className="Login">Log In</button>
                         </Link>
 
                         <Link to='/Dashboard'>
-                        <button>Sign Up</button>
+                        <button className="Signup">Sign Up</button>
                         </Link>
                     </div>
                     
