@@ -6,6 +6,7 @@ import { Select, MenuItem, FormControl, Button, SearchBar, Stack } from '@mui/ma
 import data from './mock-data.json';
 import "./TransactionTable.scss";
 
+// import Moralis from "moralis";
 
 export default function Tabletest() {
     const[transaction, setTransaction] = useState(data);
@@ -16,7 +17,7 @@ export default function Tabletest() {
         id: 'XR57D',
         amount: '',
         receiver: '',
-
+        message: '',
     })
 
     const handleAddFormChange = (event) => {
@@ -41,6 +42,7 @@ export default function Tabletest() {
             id: addFormData.id,
             amount: addFormData.amount,
             receiver: addFormData.receiver,
+            message: addFormData.message
         };
 
         const newTransactions = [...transaction, newTransaction];
@@ -77,7 +79,7 @@ export default function Tabletest() {
         name="time"
         required="required"
         />
-        <FormControl sx={{ minWidth: 150, ml: 10 }} size="small" variant="outlined">
+        <FormControl sx={{ minWidth: 100, ml: 2 }} size="small" variant="outlined">
             <InputLabel>Status</InputLabel>
             <Select
             label="Status"
@@ -95,7 +97,7 @@ export default function Tabletest() {
         <TextField
         sx={{
           width: { sm: 20, md: 100 },
-          ml: 11
+          ml: 2
         }}
         variant="outlined"
         size="small"
@@ -107,7 +109,7 @@ export default function Tabletest() {
         <TextField
         sx={{
             width: { sm: 20, md: 100 },
-            ml: 12
+            ml: 2
           }}
         variant="outlined"
         size="small"
@@ -116,7 +118,8 @@ export default function Tabletest() {
         name="amount"
         onChange={handleAddFormChange}
         />
-        <FormControl sx={{ minWidth: 150, ml: 5 }} size="small" variant="outlined">
+        
+        <FormControl sx={{ minWidth: 130, ml: 2 }} size="small" variant="outlined">
             <InputLabel>Receiver</InputLabel>
             <Select
             label="Receiver"
@@ -126,12 +129,26 @@ export default function Tabletest() {
             onChange={handleReceiverChange}
             defaultValue=''
             >
-            <MenuItem value={'Costco'}>Costco</MenuItem>
-            <MenuItem value={'HEB'}>HEB</MenuItem>
-            <MenuItem value={'Zara'}>Zara</MenuItem>
+            <MenuItem value={'Pizza Press'}>Pizza Press</MenuItem>
+            <MenuItem value={'Torchy Tacos'}>Torchy Tacos</MenuItem>
+            <MenuItem value={'Miss Behavin'}>Miss Behavin</MenuItem>
             <MenuItem value={'Add New Purchaser'}>Add New Purchaser</MenuItem>
             </Select>
         </FormControl>
+
+        <TextField
+        sx={{
+            width: { sm: 100, md: 300},
+            ml: 2
+          }}
+        variant="outlined"
+        size="small"
+        label="Message"
+        required="required"
+        name="message"
+        onChange={handleAddFormChange}
+        />
+
     <Button type="submit" variant="outlined" sx={{ml: 2}}>Enter</Button>
     </form>
     </div>
@@ -144,7 +161,8 @@ export default function Tabletest() {
                 <TableCell align="center">Status</TableCell>
                 <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Amount</TableCell>
-                <TableCell align="left">Receiver</TableCell>
+                <TableCell align="center">Receiver</TableCell>
+                <TableCell align="left">Message</TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -155,7 +173,8 @@ export default function Tabletest() {
                     <TableCell align="center">{information.status}</TableCell>
                     <TableCell align="center">{information.id}</TableCell>
                     <TableCell align="center">{information.amount}</TableCell>
-                    <TableCell align="left">{information.receiver}</TableCell>
+                    <TableCell align="center">{information.receiver}</TableCell>
+                    <TableCell align="left">{information.message}</TableCell>
                 </TableRow>
             ))}
         </TableBody>

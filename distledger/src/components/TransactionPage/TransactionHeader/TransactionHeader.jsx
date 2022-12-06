@@ -8,7 +8,7 @@ export default class TransactionHeader extends Component {
   render() {
     return (
       <div className='head'>
-         <Link to='/Dashboard'>
+        <Link to='/Dashboard'>
         <button><img src={TransaxnLogo} alt="Transaxn Logo" className='Logo'></img></button>
         </Link>
         <img src={ProfileIcon} alt="ProfileIcon" className='Profile'></img>
