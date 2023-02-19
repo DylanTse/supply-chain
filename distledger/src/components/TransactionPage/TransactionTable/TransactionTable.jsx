@@ -6,7 +6,6 @@ import { Select, MenuItem, FormControl, Button, SearchBar, Stack } from '@mui/ma
 import data from './mock-data.json';
 import "./TransactionTable.scss";
 
-// import Moralis from "moralis";
 
 export default function Tabletest() {
     const[transaction, setTransaction] = useState(data);
